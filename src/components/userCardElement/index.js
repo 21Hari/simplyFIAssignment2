@@ -1,8 +1,7 @@
 import UserListElement from '../userListElement';
 import './index.css';
 import { useState, useEffect } from 'react';
-import { TailSpin } from "react-loader-spinner";
-import { Modal, Form, Input } from "antd";
+import { Modal, Form, Input, Spin } from "antd";
 
 const UserCardElement = () => {
     const [users, setUsers] = useState([]);
@@ -51,7 +50,7 @@ const UserCardElement = () => {
 
     const renderLoader = () => (
         <div className="loader-container">
-            <TailSpin visible={true} height="60" width="60" color="#000000" ariaLabel="tail-spin-loading" radius="1" />
+            <Spin size="large" tip="Loading users..." />
         </div>
     );
 
@@ -74,7 +73,6 @@ const UserCardElement = () => {
                     ))}
                 </ul>
             )}
-
 
             {editingUser && (
                 <Modal
